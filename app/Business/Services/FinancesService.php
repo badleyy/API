@@ -4,6 +4,7 @@ namespace App\Business\Services;
 
 use App\Business\Interfaces\IFinancesService;
 use App\Business\Models\FinanceModel;
+use DB;
 
 class FinancesService implements IFinancesService {
 	
@@ -21,5 +22,12 @@ class FinancesService implements IFinancesService {
 
 	}
 
+	/*
+		Updates the users finance information
+	*/
+	public function UpdateFinances($accountId) {
+
+	}
+}
 
 ?>

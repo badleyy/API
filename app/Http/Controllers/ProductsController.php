@@ -17,30 +17,11 @@ class ProductsController extends NoAuthController {
     	$this->_ps = $ps;
     }
 
-    /*
-		Gets all the products. 
-		Uses a skip take approach to return a subset of all the raffles
-    */
-	protected function GetProducts() {
-		// Default skip take
-		$skip = 0;
-		$take = 50;
-		// Checks to see if skip and take are supplied as parameters
-		if(Input::has('skip') && Input::has('take')) {
-			$skip = Input::get('skip');
-			$take = Input::get('take');
-		}
-		// Gets the raffles subset
-		$products = $this->_ps->GetProducts($skip, $take);
-		// returns the response;
-		return response()->json(new WebResponseModel("success", "none", count($products), $this->_ps->GetAllProductsCount(), $products));
-	}
-
 	/*
 		Gets all the products with the raffle information included. 
 		Uses a skip take approach to return a subset of all the raffles
 	*/
-	protected function GetProductsWithRaffles() {
+	protected function GetProducts() {
 		// Default skip take
 		$skip = 0;
 		$take = 50;

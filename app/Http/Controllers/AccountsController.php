@@ -3,11 +3,10 @@
 // Namespace
 namespace App\Http\Controllers;
 
-use App\Business\Interfaces\IRafflesService;
-use App\Business\Interfaces\IProductsService;
+use App\Business\Interfaces\ITicketsService;
 use App\Business\Models\WebResponseModel;
 
-class TicketsController extends NoAuthBaseController {
+class AccountsController extends NoAuthBaseController {
 
 	protected $_ts;
 
@@ -17,11 +16,15 @@ class TicketsController extends NoAuthBaseController {
     	$this->_ts = $ts;
     }
 
-    public function PurchaseTicket() {
+    public function GetAccount() {
 
     }
 
-    public function RefundTicket() {
+    public function GetTicketsPerAccount() {
+
+    }
+
+    public function GetProductsPerAccount() {
 
     }
 }

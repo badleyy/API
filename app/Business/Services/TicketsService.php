@@ -2,20 +2,20 @@
 
 namespace App\Business\Services;
 
-use App\Business\Interfaces\IRafflesService;
-//use App\Business\Interfaces\IFinanceService;
+use App\Business\Interfaces\IUsersService;
+use App\Business\Interfaces\IAccountsService;
 use App\Business\Interfaces\ITicketsService;
+use App\Business\Interfaces\IFinancesService;
+use App\Business\Interfaces\IProductsService;
 use App\Business\Models\TicketModel;
 
 class TicketsService implements ITicketsService {
 
-	protected $_rs;
 	protected $_fs;
 
 
-	public function __construct(IRafflesService $rs /*, IFinancesService $fs */) {
-		$this->_rs = $rs;
-		//$this->fs = $fs;
+	public function __construct(IFinancesService $fs) {
+		$this->_fs = $fs;
 	}
 
 	/*

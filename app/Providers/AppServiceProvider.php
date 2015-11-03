@@ -24,8 +24,10 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         // Custom Service Bindings
+        $this->app->bind('App\Business\Interfaces\IAccountsService', 'App\Business\Services\AccountsService');
+        $this->app->bind('App\Business\Interfaces\IFinancesService', 'App\Business\Services\FinancesService');
         $this->app->bind('App\Business\Interfaces\IProductsService', 'App\Business\Services\ProductsService');
-        $this->app->bind('App\Business\Interfaces\IRafflesService', 'App\Business\Services\RafflesService');
         $this->app->bind('App\Business\Interfaces\ITicketsService', 'App\Business\Services\TicketsService');
+        $this->app->bind('App\Business\Interfaces\IUsersService', 'App\Business\Services\UsersService');
     }
 }

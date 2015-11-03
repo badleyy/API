@@ -4,15 +4,13 @@
 namespace App\Http\Controllers;
 
 use App\Business\Interfaces\ITicketsService;
-use App\Business\Interfaces\IProductsService;
 use App\Business\Models\WebResponseModel;
 
-class TestsController extends NoAuthController {
+class TestsController extends NoAuthBaseController {
 
 	protected $_service;
 
-	public function __construct(ITicketsService $service)
-    {
+	public function __construct(ITicketsService $service) {
     	//parent::__construct();
     	$this->_service = $service;
     }

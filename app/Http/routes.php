@@ -13,12 +13,21 @@
 // Tests Routes 
 Route::get('/test', 'TestsController@Test' );
 
-// Raffles Routes
-Route::get('/raffles', 'RafflesController@GetRaffles');
-Route::get('/raffles/{raffle_id}', 'RafflesController@GetRaffleById' );
+//Register Routes
+Route::post('/register', 'RegistrationController@Register');
 
+//Auth Routes
+Route::post('/auth', 'AuthenticationController@Authenticate');
 
 // Products Routes
 Route::get('/products', 'ProductsController@GetProducts');
-Route::get('/productsraffles', 'ProductsController@GetProductsWithRaffles');
 Route::get('/products/{product_id}', 'ProductsController@GetProductById');
+
+// Account Routes
+Route::get('accounts/{account_id}', 'AccountsController@GetAccount');
+Route::get('accounts/{account_id}/tickets', 'AccountsController@GetTicketsPerAccount');
+Route::get('accounts/{account_id}/products', 'AccountsController@GetProductsPerAccount');
+
+//Tickets Routes
+Route::post('tickets', 'TicketsController@PurchaseTicket');
+Route::post('tickets/{ticket_id}', 'TicketsController@RefundTicket');
