@@ -7,7 +7,7 @@ use App\Business\Interfaces\IProductsService;
 use App\Business\Models\WebResponseModel;
 use Input;
 
-class ProductsController extends NoAuthController {
+class ProductsController extends NoAuthBaseController {
 
 	protected $_ps;
 
@@ -31,7 +31,7 @@ class ProductsController extends NoAuthController {
 			$take = Input::get('take');
 		}
 		// Gets the raffles subset
-		$productswraffles = $this->_ps->GetProductsWithRaffles($skip, $take);
+		$productswraffles = $this->_ps->GetProducts($skip, $take);
 		// returns the response;
 		return response()->json(new WebResponseModel("success", "none", count($productswraffles), $this->_ps->GetAllProductsCount(), 
 													 $productswraffles));
