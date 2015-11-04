@@ -19,7 +19,7 @@ class CreateAccountsTable extends Migration
             $table->foreign('user_id')->references('user_id')->on('users');
             $table->string('username', 50)->nullable();
             $table->string('password', 100  )->nullable();
-            $table->rememberToken();
+            //$table->rememberToken();
             $table->boolean('is_deleted')->default(0);
             $table->timestamps();
         });
