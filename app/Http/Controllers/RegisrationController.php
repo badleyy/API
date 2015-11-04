@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 
 use App\Business\Models\WebResponseModel;
 
-class RegistrationController extends NoAuthBaseController {
+class RegistrationController extends Controller {
 
 	protected $_ts;
 
 	public function __construct()
     {
-    	//parent::__construct();
+    
     }
 
     public function Register() {

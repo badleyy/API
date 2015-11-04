@@ -19,7 +19,7 @@ class AccountsTableSeeder extends Seeder
 		DB::table('accounts')->insert([
 			'user_id' => $userId,
         	'username' => 'bakeshow',
-        	'password' => bcrypt('bakeshow'),
+        	'password' => Hash::make('bakeshow'),
         	'created_at' => Carbon::now(),
         	'updated_at' => Carbon::now(),
 
@@ -30,7 +30,7 @@ class AccountsTableSeeder extends Seeder
 		DB::table('accounts')->insert([
 			'user_id' => $userId,
         	'username' => 'dadley',
-        	'password' => bcrypt('dadley'),
+        	'password' => Hash::make('dadley'),
         	'created_at' => Carbon::now(),
         	'updated_at' => Carbon::now(),
 		]);

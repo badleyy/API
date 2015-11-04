@@ -64,7 +64,8 @@ return [
     |
     */
 
-    'user' => 'App\User',
+    //'user' => 'App\User',
+    'user' => 'App\Business\Models\AccountModel',
 
     /*
     |--------------------------------------------------------------------------
@@ -76,7 +77,8 @@ return [
     |
     */
 
-    'identifier' => 'id',
+    //'identifier' => 'id',
+    'identifier' => 'account_id',
 
     /*
     |--------------------------------------------------------------------------

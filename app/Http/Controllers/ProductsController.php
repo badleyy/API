@@ -7,13 +7,12 @@ use App\Business\Interfaces\IProductsService;
 use App\Business\Models\WebResponseModel;
 use Input;
 
-class ProductsController extends NoAuthBaseController {
+class ProductsController extends Controller {
 
 	protected $_ps;
 
 	public function __construct(IProductsService $ps)
     {
-    	//parent::__construct();
     	$this->_ps = $ps;
     }
 

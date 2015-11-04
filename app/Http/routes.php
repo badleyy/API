@@ -10,24 +10,35 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-// Tests Routes 
-Route::get('/test', 'TestsController@Test' );
 
+// Routes that dont need authentication
 //Register Routes
 Route::post('/register', 'RegistrationController@Register');
 
 //Auth Routes
-Route::post('/auth', 'AuthenticationController@Authenticate');
+Route::get('/auth', 'AuthenticationController@Authenticate');
 
-// Products Routes
-Route::get('/products', 'ProductsController@GetProducts');
-Route::get('/products/{product_id}', 'ProductsController@GetProductById');
+// Tests Routes 
+//Route::get('/test', 'TestsController@Test' );
 
-// Account Routes
-Route::get('accounts/{account_id}', 'AccountsController@GetAccount');
-Route::get('accounts/{account_id}/tickets', 'AccountsController@GetTicketsPerAccount');
-Route::get('accounts/{account_id}/products', 'AccountsController@GetProductsPerAccount');
 
-//Tickets Routes
-Route::post('tickets', 'TicketsController@PurchaseTicket');
-Route::post('tickets/{ticket_id}', 'TicketsController@RefundTicket');
+// Routes that need authentication
+Route::group(['middleware' => ['before' => 'jwt.auth', 'after' => 'jwt.refresh']], function() {
+
+	// Tests Routes 
+	Route::get('/test', 'TestsController@Test' );
+
+	// Products Routes
+	Route::get('/products', 'ProductsController@GetProducts');
+	Route::get('/products/{product_id}', 'ProductsController@GetProductById');
+
+	// Account Routes
+	Route::get('accounts/{account_id}', 'AccountsController@GetAccount');
+	Route::get('accounts/{account_id}/tickets', 'AccountsController@GetTicketsPerAccount');
+	Route::get('accounts/{account_id}/products', 'AccountsController@GetProductsPerAccount');
+
+	//Tickets Routes
+	Route::post('tickets', 'TicketsController@PurchaseTicket');
+	Route::post('tickets/{ticket_id}', 'TicketsController@RefundTicket');
+});
+
