@@ -19,23 +19,22 @@ Route::post('/register', 'RegistrationController@Register');
 Route::get('/auth', 'AuthenticationController@Authenticate');
 
 // Tests Routes 
-//Route::get('/test', 'TestsController@Test' );
+Route::get('/test', 'TestsController@Test' );
 
 
 // Routes that need authentication
 Route::group(['middleware' => ['before' => 'jwt.auth', 'after' => 'jwt.refresh']], function() {
 
 	// Tests Routes 
-	Route::get('/test', 'TestsController@Test' );
+	//Route::get('/test', 'TestsController@Test' );
 
 	// Products Routes
 	Route::get('/products', 'ProductsController@GetProducts');
 	Route::get('/products/{product_id}', 'ProductsController@GetProductById');
 
 	// Account Routes
-	Route::get('accounts/{account_id}', 'AccountsController@GetAccount');
-	Route::get('accounts/{account_id}/tickets', 'AccountsController@GetTicketsPerAccount');
-	Route::get('accounts/{account_id}/products', 'AccountsController@GetProductsPerAccount');
+	Route::get('accounts', 'AccountsController@GetAccountInformation');
+	Route::get('accounts/products', 'AccountsController@GetProductsPerAccount');
 
 	//Tickets Routes
 	Route::post('tickets', 'TicketsController@PurchaseTicket');

@@ -16,14 +16,6 @@ class TicketsService implements ITicketsService {
 	}
 
 	/*
-		Gets all the tickets for an account
-	*/
-	public function GetTicketsPerAccount($accountId) {
-		// Gets the tickets for the account
-		return TicketModel::where('account_id', $accountId)->get();
-	}
-
-	/*
 		Purcahses a ticket
 	*/
 	public function PurchaseTicket($raffleId) {

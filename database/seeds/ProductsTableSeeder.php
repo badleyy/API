@@ -17,7 +17,7 @@ class ProductsTableSeeder extends Seeder
     	
         //
 		DB::table('products')->insert([
-			'account_id' => $accountId,
+			//'account_id' => $accountId,
         	'product_name' => 'New Headphones',
         	'product_description' => 'Brand new headphones',
         	'created_at' => Carbon::now(),
@@ -27,7 +27,7 @@ class ProductsTableSeeder extends Seeder
 		$accountId = DB::table('accounts')->where('username', 'dadley')->pluck('account_id');
 
 		DB::table('products')->insert([
-			'account_id' => $accountId,
+			//'account_id' => $accountId,
         	'product_name' => 'New TV',
         	'product_description' => 'Brand new tv',
         	'created_at' => Carbon::now(),

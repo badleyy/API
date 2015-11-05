@@ -6,6 +6,8 @@ interface IProductsService {
 
 	public function GetAllProductsCount();
 
+	public function GetProductsCountPerAccount($accountId);
+
 	public function CreateProduct();
 
 	public function GetProductsPerAccount($accountId);

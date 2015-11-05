@@ -12,14 +12,10 @@ class RafflesTableSeeder extends Seeder
      */
     public function run()
     {
-
-    	// Very easily could write way better sql here. Just too damn lazy
-    	$accountId = DB::table('accounts')->where('username', 'bakeshow')->pluck('account_id');
-    	$productId = DB::table('products')->where('account_id', $accountId)->pluck('product_id');
     	
         //
 		DB::table('raffles')->insert([
-			'product_id' => $productId,
+			'product_id' => 1, // These are hard coded because they will be created when the product is created. They have a 1 to 1 relationship
         	'open_date' => Carbon::now(),
         	'close_date' => Carbon::now(),
         	'raffle_date' => Carbon::now(),
@@ -31,12 +27,9 @@ class RafflesTableSeeder extends Seeder
 
 		]);
 
-		// Very easily could write way better sql here. Just too damn lazy
-    	$accountId = DB::table('accounts')->where('username', 'dadley')->pluck('account_id');
-    	$productId = DB::table('products')->where('account_id', $accountId)->pluck('product_id');
 
 		DB::table('raffles')->insert([
-			'product_id' => $productId,
+			'product_id' => 2, // These are hard coded because they will be created when the product is created. They have a 1 to 1 relationship
         	'open_date' => Carbon::now(),
         	'close_date' => Carbon::now(),
         	'raffle_date' => Carbon::now(),

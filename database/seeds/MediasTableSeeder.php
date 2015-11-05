@@ -15,19 +15,20 @@ class MediasTableSeeder extends Seeder
 
     	// Very easily could write way better sql here. Just too damn lazy
     	$accountId = DB::table('accounts')->where('username', 'bakeshow')->pluck('account_id');
-    	$productId = DB::table('products')->where('account_id', $accountId)->pluck('product_id');
-    	
+        $raffleId = DB::table('accounts_raffles')->where('account_id', $accountId)->pluck('raffle_id');
+        $productId = DB::table('raffles')->where('raffle_id', $raffleId)->pluck('product_id');
         //
 		DB::table('medias')->insert([
 			'product_id' => $productId,
         	'media_type' => 'picture',
-        	'media_value' => '/var/www/pictures/23',
+        	'media_value' => '/var/www/pictures/24',
         	'created_at' => Carbon::now(),
         	'updated_at' => Carbon::now(),
 		]);
 
-		$accountId = DB::table('accounts')->where('username', 'dadley')->pluck('account_id');
-    	$product = DB::table('products')->where('account_id', $accountId)->pluck('product_id');
+        $accountId = DB::table('accounts')->where('username', 'dadley')->pluck('account_id');
+        $raffleId = DB::table('accounts_raffles')->where('account_id', $accountId)->pluck('raffle_id');
+        $productId = DB::table('raffles')->where('raffle_id', $raffleId)->pluck('product_id');
 
 		DB::table('medias')->insert([
 			'product_id' => $productId,

@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
         $this->call(AccountsTableSeeder::class);
         $this->call(FinancesTableSeeder::class);
         $this->call(ProductsTableSeeder::class);
-        $this->call(MediasTableSeeder::class);
         $this->call(RafflesTableSeeder::class);
         $this->call(TicketsTableSeeder::class);
         $this->call(AccountsRafflesTableSeeder::class);
+        $this->call(MediasTableSeeder::class);
 
         Model::reguard();
     }
