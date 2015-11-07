@@ -1,27 +1,45 @@
-## Laravel PHP Framework
+## Raft API
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
-
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Raft is a online raffle site.
 
 ## Official Documentation
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+### Installation
 
-## Contributing
+#####Clone the repository
+  "git clone https://github.com/badleyy/rtapi.git"
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+#####Install dependencies 
+  "composer update"* at the root directory
 
-## Security Vulnerabilities
+#####Generate a site key and update the .env file
+  "php artisan key:generate"</br>
+  ./.env file - APP_KEY={generate key}
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+#####Update the laravel service providers and aliases to include jwt authenciation
+  ./config/app.php - Add "Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class" in the providers array</br>
+  ./config/app.php - Add to the aliases array</br>
+  'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,</br>
+  'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class
+  
+#####Update the framework to include jwt-auth
+  "php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider"
 
-### License
+#####Generate a jwt key for authentication
+  "php artisan jwt:generate"</br>
+  ./config/jwt.php - Update the changeme string in the secret object with the new key
+  
+#####Configure Apache
+  Apache - change the web root to be the public folder of the directory structure "./public"
+  
+#####Update the database settings
+  ./config/database.php - update the proper host, database, username and password settings under the correct database driver.
+  
+#####Run the databse migrations and seed the database with data
+  "php artisan migrate:refresh --seed"
+  
+## API Routes and Business Information
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+In a seperate shared document
+
+  
