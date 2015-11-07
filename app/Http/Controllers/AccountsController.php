@@ -14,8 +14,7 @@ class AccountsController extends Controller {
     protected $_as;
     protected $accountId;
 
-	public function __construct(IAccountsService $as, IProductsService $ps)
-    {
+	public function __construct(IAccountsService $as, IProductsService $ps) {
     	$this->_ps = $ps;
         $this->_as = $as;
 

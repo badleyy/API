@@ -11,8 +11,7 @@ class ProductsController extends Controller {
 
 	protected $_ps;
 
-	public function __construct(IProductsService $ps)
-    {
+	public function __construct(IProductsService $ps) {
     	$this->_ps = $ps;
     }
 

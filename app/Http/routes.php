@@ -33,8 +33,8 @@ Route::group(['middleware' => ['before' => 'jwt.auth', 'after' => 'jwt.refresh']
 	Route::get('/products/{product_id}', 'ProductsController@GetProductById');
 
 	// Account Routes
-	Route::get('accounts', 'AccountsController@GetAccountInformation');
-	Route::get('accounts/products', 'AccountsController@GetProductsPerAccount');
+	Route::get('account', 'AccountsController@GetAccountInformation');
+	Route::get('account/products', 'AccountsController@GetProductsPerAccount');
 
 	//Tickets Routes
 	Route::post('tickets', 'TicketsController@PurchaseTicket');

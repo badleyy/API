@@ -11,8 +11,7 @@ class TicketsController extends Controller {
 
 	protected $_ts;
 
-	public function __construct(ITicketsService $ts)
-    {
+	public function __construct(ITicketsService $ts) {
     	$this->_ts = $ts;
     }
 
