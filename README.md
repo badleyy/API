@@ -1,44 +1,65 @@
-## Raft API
+## [RTAPI] Raft API
 
-Raft is a online raffle site.
+RTAPI is the laravel backend for the raft platform. It's REST api is consumed by the [RTUI](https://github.com/badleyy/rtui) and other cosumers.
 
-## Official Documentation
+## Installation
 
-### Installation
+The API is a [laravel](https://laravel.com) php application built only to provide an http api interface to the RAFT platform.
 
-#####Clone the repository
-  "git clone https://github.com/badleyy/rtapi.git"
+### Clone the repository
 
-#####Install dependencies 
-  "composer update"* at the root directory
+```
+$ git clone https://github.com/badleyy/rtapi.git
+```
 
-#####Generate a site key and update the .env file
-  "php artisan key:generate"</br>
-  ./.env file - APP_KEY={generate key}
+### Install dependencies 
 
-#####Update the laravel service providers and aliases to include jwt authenciation
-  ./config/app.php - Add "Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class" in the providers array</br>
-  ./config/app.php - Add to the aliases array</br>
-  'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,</br>
-  'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class
+```
+$ cd rtapi
+$ composer update
+```
+
+### Generate a site key and update the .env file
+
+```
+$ cp ./.env.example ./.env
+$ php artisan key:generate
+$ vim ./.env
+```
+
+### Generate a jwt key for authentication
+
+```
+$ php artisan jwt:generate
+# update the jwt config file with the generated key
+$ vim ./config/jwt.php
+```
   
-#####Update the framework to include jwt-auth
-  "php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider"
+## Running
 
-#####Generate a jwt key for authentication
-  "php artisan jwt:generate"</br>
-  ./config/jwt.php - Update the changeme string in the secret object with the new key
+There are many options for running RTAPI for development.
+
+### Buit-in php server
+
+<talk about using the buit in php server>
+
+### Apache
+
+<talk about running the app under apache>
+
+### Nginx
+
+<talk about running the app under apache>
   
-#####Configure Apache
-  Apache - change the web root to be the public folder of the directory structure "./public"
+### Migrating the database
+
+This codebase houses the laravel [schema builder](http://laravel.com/docs/5.1/migrations) migrations that provide a self-documenting approach to database schema updates. Running these migrations is necessary to run the application; they can be executed by running:
+
+```
+$ php artisan migrate:refresh --seed
+```
   
-#####Update the database settings
-  ./config/database.php - update the proper host, database, username and password settings under the correct database driver.
-  
-#####Run the databse migrations and seed the database with data
-  "php artisan migrate:refresh --seed"
-  
-## API Routes and Business Information
+## API Documentation
 
 In a seperate shared document
 
