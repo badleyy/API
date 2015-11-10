@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class MediaModel extends Model {
 
-	protected $table = "medias";
-	protected $primaryKey = "media_id";
+  protected $table = "medias";
+  protected $primaryKey = "media_id";
 }
 
 

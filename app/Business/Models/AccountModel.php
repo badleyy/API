@@ -12,11 +12,11 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 class AccountModel extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract {
 
-	use Authenticatable, Authorizable, CanResetPassword;
+  use Authenticatable, Authorizable, CanResetPassword;
 
-	protected $table = "accounts";
-	protected $primaryKey = "account_id";
-	protected $fillable = ['username', 'password'];
+  protected $table = "accounts";
+  protected $primaryKey = "account_id";
+  protected $fillable = ['username', 'password'];
 }
 
 ?>

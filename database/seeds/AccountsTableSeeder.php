@@ -5,23 +5,21 @@ use Carbon\Carbon;
 
 class AccountsTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
+  /**
+  * Run the database seeds.
+  *
+  * @return void
+  */
+  public function run() {
 
-    	$userId = DB::table('users')->where('first_name', 'Cory')->pluck('user_id');
+    $userId = DB::table('users')->where('first_name', 'Cory')->pluck('user_id');
     	
-        //
 		DB::table('accounts')->insert([
 			'user_id' => $userId,
-        	'username' => 'bakeshow',
-        	'password' => Hash::make('bakeshow'),
-        	'created_at' => Carbon::now(),
-        	'updated_at' => Carbon::now(),
+      'username' => 'bakeshow',
+      'password' => Hash::make('bakeshow'),
+      'created_at' => Carbon::now(),
+      'updated_at' => Carbon::now(),
 
 		]);
 
@@ -29,10 +27,10 @@ class AccountsTableSeeder extends Seeder
 
 		DB::table('accounts')->insert([
 			'user_id' => $userId,
-        	'username' => 'dadley',
-        	'password' => Hash::make('dadley'),
-        	'created_at' => Carbon::now(),
-        	'updated_at' => Carbon::now(),
+      'username' => 'dadley',
+      'password' => Hash::make('dadley'),
+      'created_at' => Carbon::now(),
+      'updated_at' => Carbon::now(),
 		]);
-    }
+  }
 }

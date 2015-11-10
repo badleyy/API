@@ -12,8 +12,8 @@ class ProductsController extends Controller {
 	protected $_ps;
 
 	public function __construct(IProductsService $ps) {
-    	$this->_ps = $ps;
-    }
+		$this->_ps = $ps;
+	}
 
 	/*
 		Gets all the products with the raffle information included. 

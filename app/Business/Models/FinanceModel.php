@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class FinanceModel extends Model {
 
-	protected $table = "finances";
-	protected $primaryKey = "finance_id";
+  protected $table = "finances";
+  protected $primaryKey = "finance_id";
 }
 
 

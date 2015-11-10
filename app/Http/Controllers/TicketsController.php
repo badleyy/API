@@ -9,19 +9,19 @@ use App\Business\Models\WebResponseModel;
 
 class TicketsController extends Controller {
 
-	protected $_ts;
+  protected $_ts;
 
-	public function __construct(ITicketsService $ts) {
-    	$this->_ts = $ts;
-    }
+  public function __construct(ITicketsService $ts) {
+    $this->_ts = $ts;
+  }
 
-    public function PurchaseTicket() {
+  public function PurchaseTicket() {
 
-    }
+  }
 
-    public function RefundTicket() {
+  public function RefundTicket() {
 
-    }
+  }
 }
 
 ?>
