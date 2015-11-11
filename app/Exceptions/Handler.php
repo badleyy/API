@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use App\Business\Models\WebResponseModel;
 
 class Handler extends ExceptionHandler
 {
@@ -47,5 +48,6 @@ class Handler extends ExceptionHandler
         }
 
         return parent::render($request, $e);
+        //return response()->json(new WebResponseModel("fail", "Unknown error has occured. Please try again." , 0, 0, "{}"));
     }
 }
