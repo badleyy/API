@@ -14,8 +14,8 @@ class CreateTicketsTable extends Migration {
     //
     Schema::create('tickets', function(Blueprint $table){
       $table->increments('ticket_id');
-      $table->integer('account_id')->unsigned();
-      $table->foreign('account_id')->references('account_id')->on('accounts');
+      $table->integer('user_id')->unsigned();
+      $table->foreign('user_id')->references('user_id')->on('users');
       $table->integer('raffle_id')->unsigned();
       $table->foreign('raffle_id')->references('raffle_id')->on('raffles');
       $table->boolean('is_deleted')->default(0);
