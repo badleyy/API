@@ -29,7 +29,7 @@ return [
     */
 
     //'model' => App\User::class,
-    'model' => App\Business\Models\AccountModel::class,
+    'model' => App\Business\Models\UserModel::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -42,8 +42,8 @@ return [
     |
     */
 
-    //'table' => 'users',
-    'table' => 'accounts',
+    'table' => 'users',
+    //'table' => 'accounts',
 
     /*
     |--------------------------------------------------------------------------

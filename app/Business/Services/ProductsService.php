@@ -17,9 +17,9 @@ class ProductsService implements IProductsService {
   /*
     Gets the number of products the users has tickets for
   */
-  public function GetProductsCountPerAccount($accountId) {
-    return DB::table('accounts_raffles')->where('account_id', $accountId)
-    ->join('raffles', 'accounts_raffles.raffle_id', '=', 'raffles.raffle_id')
+  public function GetProductsCountPerUser($userId) {
+    return DB::table('users_raffles')->where('user_id', $userId)
+    ->join('raffles', 'users_raffles.raffle_id', '=', 'raffles.raffle_id')
     ->join('products', 'raffles.product_id', '=', 'products.product_id')->count();
   }
 
@@ -33,10 +33,10 @@ class ProductsService implements IProductsService {
   /*
     Gets a list of products for the account
   */
-  public function GetProductsPerAccount($accountId) {
+  public function GetProductsPerUser($userId) {
     // Look up the tickets for the account and join them with the raffle and product information
     // This may need a little more rework for multiple tickets to a raffle
-    return DB::table('tickets')->where('tickets.account_id', $accountId)
+    return DB::table('tickets')->where('tickets.user_id', $userId)
     ->join('raffles', 'tickets.raffle_id', '=', 'raffles.raffle_id')
     ->join('products', 'raffles.product_id', '=', 'products.product_id')
     ->select('tickets.ticket_id', 'products.product_id', 'products.product_name', 'products.product_description',

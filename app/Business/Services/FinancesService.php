@@ -11,21 +11,21 @@ class FinancesService implements IFinancesService {
   /*
     Withdraws money from the account specified
   */
-  public function WithdrawFromAccount($accountId, $financeType) {
+  public function WithdrawFromAccount($userId, $financeType) {
 
   }
 
   /*
     Deposites money into the account specified
   */
-  public function DepositeIntoAccount($accountId, $financeType) {
+  public function DepositeIntoAccount($userId, $financeType) {
 
   }
 
   /*
     Updates the users finance information
   */
-  public function UpdateFinances($accountId) {
+  public function UpdateFinances($userId) {
 
   }
 }

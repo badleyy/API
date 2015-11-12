@@ -12,7 +12,7 @@ class ProductsTableSeeder extends Seeder
   */
   public function run() {
 
-    $accountId = DB::table('accounts')->where('username', 'bakeshow')->pluck('account_id');
+    $accountId = DB::table('users')->where('username', 'bakeshow')->pluck('user_id');
       
     DB::table('products')->insert([
       //'account_id' => $accountId,
@@ -22,7 +22,7 @@ class ProductsTableSeeder extends Seeder
       'updated_at' => Carbon::now(),
     ]);
 
-    $accountId = DB::table('accounts')->where('username', 'dadley')->pluck('account_id');
+    $accountId = DB::table('users')->where('username', 'dadley')->pluck('user_id');
 
     DB::table('products')->insert([
       //'account_id' => $accountId,

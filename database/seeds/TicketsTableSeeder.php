@@ -13,20 +13,20 @@ class TicketsTableSeeder extends Seeder
   public function run() {
 
     // Very easily could write way better sql here. Just too damn lazy
-    $accountId = DB::table('accounts')->where('username', 'bakeshow')->pluck('account_id');
+    $accountId = DB::table('users')->where('username', 'bakeshow')->pluck('user_id');
       
     DB::table('tickets')->insert([
-      'account_id' => $accountId,
+      'user_id' => $accountId,
       'raffle_id' => 1, // There should always be a raffle 1 and 2
       'created_at' => Carbon::now(),
       'updated_at' => Carbon::now(),
     ]);
 
     // Very easily could write way better sql here. Just too damn lazy
-    $accountId = DB::table('accounts')->where('username', 'dadley')->pluck('account_id');
+    $accountId = DB::table('users')->where('username', 'dadley')->pluck('user_id');
 
     DB::table('tickets')->insert([
-      'account_id' => $accountId,
+      'user_id' => $accountId,
       'raffle_id' => 2, // There should always be a raffle 1 and 2
       'created_at' => Carbon::now(),
       'updated_at' => Carbon::now(),

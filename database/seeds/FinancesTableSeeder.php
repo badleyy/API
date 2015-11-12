@@ -12,10 +12,10 @@ class FinancesTableSeeder extends Seeder
   */
   public function run() {
 
-    $accountId = DB::table('accounts')->where('username', 'bakeshow')->pluck('account_id');
+    $accountId = DB::table('users')->where('username', 'bakeshow')->pluck('user_id');
     
     DB::table('finances')->insert([
-      'account_id' => $accountId,
+      'user_id' => $accountId,
       'finance_type' => 'paypal',
       'balance' => 50.00,
       'created_at' => Carbon::now(),
@@ -23,10 +23,10 @@ class FinancesTableSeeder extends Seeder
 
     ]);
 
-    $accountId = DB::table('accounts')->where('username', 'dadley')->pluck('account_id');
+    $accountId = DB::table('users')->where('username', 'dadley')->pluck('user_id');
 
     DB::table('finances')->insert([
-      'account_id' => $accountId,
+      'user_id' => $accountId,
       'finance_type' => 'paypal',
       'balance' => 50.00,
       'created_at' => Carbon::now(),
