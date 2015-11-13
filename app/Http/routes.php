@@ -33,11 +33,11 @@ Route::group(['middleware' => ['before' => 'jwt.auth', 'after' => 'jwt.refresh']
 	Route::get('/products/{product_id}', 'ProductsController@GetProductById');
 
 	// Account Routes
-	Route::get('user', 'UsersController@GetUserInformation');
-	Route::get('user/products', 'UsersController@GetProductsPerUser');
+	Route::get('users/{user_id}', 'UsersController@GetUserInformation');
+	Route::get('users/{user_id}/products', 'UsersController@GetProductsPerUser');
 
 	//Tickets Routes
 	Route::post('tickets', 'TicketsController@PurchaseTicket');
-	Route::post('tickets/{ticket_id}', 'TicketsController@RefundTicket');
+	Route::delete('tickets/{ticket_id}', 'TicketsController@RefundTicket');
 });
 
