@@ -17,6 +17,29 @@ class UserModel extends Model implements AuthenticatableContract, AuthorizableCo
   protected $table = "users";
   protected $primaryKey = "user_id";
   protected $fillable = ['username', 'password', 'first_name', 'last_name', 'email_address'];
+
+  public function getRememberToken() {
+   return null; // not supported
+ }
+
+ public function setRememberToken($value) {
+   // not supported
+ }
+
+ public function getRememberTokenName() {
+   return null; // not supported
+ }
+
+  /**
+  * Overrides the method to ignore the remember token.
+  */
+ public function setAttribute($key, $value) {
+    $isRememberTokenAttribute = $key == $this->getRememberTokenName();
+    if (!$isRememberTokenAttribute)
+    {
+      parent::setAttribute($key, $value);
+    }
+  }
 }
 
 

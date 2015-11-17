@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use JWTAuth;
+use Auth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthenticationController extends Controller {
@@ -14,7 +15,7 @@ class AuthenticationController extends Controller {
     // Default constructor
   public function __construct() { }
 
-  protected function Authenticate(Request $request) {
+  protected function AuthenticateToken(Request $request) {
     // Grab the credentials from the request
     $credentials = $request->only('username', 'password');
     try {
@@ -28,6 +29,21 @@ class AuthenticationController extends Controller {
     }
         // if no errors are encountered we can return a JWT
     return response()->json(compact('token'));
+  }
+
+  protected function AuthenticateCookie(Request $request) {
+    $credentials = $request->only('username', 'password');
+    if(Auth::attempt($credentials)) {
+      return response()->json("success");
+    }    
+    else {
+      return response()->json("failure");
+    }
+  }
+
+  protected function Logout() {
+    Auth::Logout();
+    return response()->json("success");
   }
 }
 

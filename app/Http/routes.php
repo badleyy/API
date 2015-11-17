@@ -16,17 +16,19 @@
 Route::post('/register', 'RegistrationController@Register');
 
 //Auth Routes
-Route::get('/auth', 'AuthenticationController@Authenticate');
+Route::get('/autht', 'AuthenticationController@AuthenticateToken');
+Route::get('/authc', 'AuthenticationController@AuthenticateCookie');
 
 // Tests Routes 
 Route::get('/test', 'TestsController@Test' );
 
 
 // Routes that need authentication
-Route::group(['middleware' => ['before' => 'jwt.auth', 'after' => 'jwt.refresh']], function() {
+// Authentication middleware for JWT tokens
+//Route::group(['middleware' => ['before' => 'jwt.auth', 'after' => 'jwt.refresh']], function() {
 
-	// Tests Routes 
-	//Route::get('/test', 'TestsController@Test' );
+// Authentication  middleware for cookies
+Route::group(['middleware' => 'auth'], function() {
 
 	// Products Routes
 	Route::get('/products', 'ProductsController@GetProducts');
@@ -39,5 +41,7 @@ Route::group(['middleware' => ['before' => 'jwt.auth', 'after' => 'jwt.refresh']
 	//Tickets Routes
 	Route::post('tickets', 'TicketsController@PurchaseTicket');
 	Route::delete('tickets/{ticket_id}', 'TicketsController@RefundTicket');
+	Route::get('/logout', 'AuthenticationController@Logout');
 });
+//});
 
