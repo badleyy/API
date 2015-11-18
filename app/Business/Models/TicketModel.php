@@ -16,5 +16,4 @@ class TicketModel extends Model {
 
 }
 
-
 ?>
