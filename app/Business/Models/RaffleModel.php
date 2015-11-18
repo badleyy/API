@@ -12,7 +12,7 @@ class RaffleModel extends Model {
   'ticket_price', 'current_num_tickets', 'maximum_number_tickets');
 
   public function product() {
-    return $this->belongsTo('ProductModel', 'product_id');
+    return $this->belongsTo('App\Business\Models\ProductModel', 'product_id');
   }
 }
 

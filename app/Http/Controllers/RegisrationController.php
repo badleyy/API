@@ -22,7 +22,7 @@ class RegistrationController extends Controller {
       return response()->json(new WebResponseModel("success", "none", 0, 0, "{}"));
     }
     else {
-      return response()->json(new WebResponseModel("fail", $registration['message'], 0, 0, "{}"));
+      return response()->json(new WebResponseModel("failure", $registration['message'], 0, 0, "{}"));
     }
   }
 }

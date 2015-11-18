@@ -4,11 +4,9 @@ namespace App\Business\Interfaces;
 
 interface ITicketsService {
 
-  public function GetTicketsPerAccount($userId);
+  public function PurchaseTicket($user_id, $raffleId);
 
-  public function PurchaseTicket($raffleId);
-
-  public function RefundTicket($ticketId);
+  public function RefundTicket($user_id, $ticketId);
 }
 
 ?>
