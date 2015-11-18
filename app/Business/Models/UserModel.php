@@ -18,22 +18,27 @@ class UserModel extends Model implements AuthenticatableContract, AuthorizableCo
   protected $primaryKey = "user_id";
   protected $fillable = ['username', 'password', 'first_name', 'last_name', 'email_address'];
 
+  public function finance() {
+    return $this->hasOne('App\Business\Models\FinanceModel', 'user_id');
+  }
+
+
   public function getRememberToken() {
    return null; // not supported
- }
+  }
 
- public function setRememberToken($value) {
+  public function setRememberToken($value) {
    // not supported
- }
+  }
 
- public function getRememberTokenName() {
+  public function getRememberTokenName() {
    return null; // not supported
- }
+  }
 
   /**
   * Overrides the method to ignore the remember token.
   */
- public function setAttribute($key, $value) {
+  public function setAttribute($key, $value) {
     $isRememberTokenAttribute = $key == $this->getRememberTokenName();
     if (!$isRememberTokenAttribute)
     {
