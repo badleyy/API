@@ -16,8 +16,8 @@
 Route::post('/register', 'RegistrationController@Register');
 
 //Auth Routes
-Route::get('/autht', 'AuthenticationController@AuthenticateToken');
-Route::get('/authc', 'AuthenticationController@AuthenticateCookie');
+Route::post('/autht', 'AuthenticationController@AuthenticateToken');
+Route::post('/authc', 'AuthenticationController@AuthenticateCookie');
 
 // Tests Routes 
 Route::get('/test', 'TestsController@Test' );
