@@ -19,15 +19,20 @@ class UsersController extends Controller {
     $this->_us = $us;
 
     // The global account variable
-    $this->userId = Auth::user()->user_id;
+    $this->userId = Auth::id();
   }
 
   /*
       Gets the users account information
   */
   public function GetUserInformation() {
+    if(Auth::check()) {
     $userInformation = $this->_us->GetUserInformation($this->userId);
     return response()->json(new WebResponseModel("success", "none", 1, 1,  $userInformation));
+    }
+    else {
+      return response()->json(new WebResponseModel("failure", "not authenicated", 1, 1, "{}"));
+    }
   }
 
   public function GetProductsPerUser() {
